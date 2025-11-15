@@ -1,65 +1,136 @@
-# 📈 HR Analytics Dashboard: Focusing on Retention and Experience
+# 📊 Employee Analytics Dashboard
 
-## 🎯 Project Goal
-
-This project aims to diagnose key factors driving employee attrition and satisfaction using company HR data, focusing on four core areas: **Home (Overview), People, Experience, and Attrition Focus.**
-
-## ⚙️ Data Preparation and Cleaning
-
-The raw dataset was cleaned and transformed for analysis:
-
-* **Removed Constant Fields:** Employee Count, Over 18 status, and Standard Hours (80 hrs) were removed as they offered no variance for analysis.
-* **Categorical Conversion:** Figures type A, B, C were converted to numerical values (1, 2, 3) to facilitate quantitative analysis.
-* **Renaming:** 'Employee Number' was renamed to **ID**, 'Business Travel' to **BusinessTravel**, 'Research and Development' to **R&D**, and 'Human Resources' to **HR**.
-
-## 📊 Executive Summary of Key Findings
-
-| Metric | Result | Impact |
-| :--- | :--- | :--- |
-| **Overall Attrition Rate** | **16.1%** (237 employees left out of 1470) | This rate is high and indicates a critical need for retention strategies. |
-| **Experience Scores** | Sales (2.75/5) and R&D (2.76/5) | Scores are just above the midpoint, signaling low engagement/satisfaction in majority departments. |
-| **High-Value Flight Risk** | 29% of Attrition is from Q1 (Highest Value) employees. | Represents a severe loss of institutional knowledge and critical talent. |
-| **Promotion Deadlock** | 215 employees (5+ years tenure) are in Active Deadlock. | This highly experienced group is the most likely to leave. |
+A data-driven HR dashboard designed to uncover insights about employee demographics, satisfaction, and attrition risks. Built for portfolio demonstration and storytelling with real-world business context.
 
 ---
 
-## 🔎 Detailed Analysis by Page
+## 🧰 Data Preparation
 
-### **Page 1: Home (Overall Metrics)**
-
-* **Total Active Employees:** 1233
-* **Total Attrition:** 237
-* **Attrition Rate:** 16.1%
-
-### **Page 2: People (Demographics)**
-
-* **Age Profile:** The majority of employees are between **26 and 35 years old** (a youthful, high-potential workforce).
-* **Department Distribution:** 65% in **R&D**, with only 4% in **HR**.
-    * *Observation:* The small HR team may be a contributing factor to the high attrition rate and low satisfaction scores observed elsewhere.
-* **Gender Split:** Approximately 60% Men.
-
-### **Page 3: Experience (Satisfaction Scores)**
-
-Employee experience was measured across four indicators (Environment, Job, Relationship, Work-Life Balance):
-
-* **Sales Department:** Overall Score **2.75/5**
-* **R&D Department:** Overall Score **2.76/5**
-* *Conclusion:* These scores confirm widespread moderate satisfaction/low engagement across the largest employee groups.
-
-### **Page 4: Attrition Focus (Root Causes)**
-
-1.  **Promotion Deadlock Risk:**
-    * **Low Risk (0-2 yrs):** 1097 employees (Healthy Sign)
-    * **Starting Stagnant (3-5 yrs):** 158 employees (Immediate flight risk)
-    * **Active Deadlock (5+ yrs):** 215 employees (Highest risk, highly experienced talent)
-2.  **Overtime Burnout:** **31%** of all attritions cited overtime as the reason for leaving.
-3.  **New Hire Training Failure:** **50%** of new hires who received no training left within their first year. This indicates a critical failure in the onboarding process.
-4.  **Low Engagement Crisis:** The Sales department, despite receiving frequent promotions, still has the highest engagement issues among attritions, suggesting that **promotion alone is not a sufficient retention tool.**
+- Removed redundant columns: `EmployeeCount`, `Over18`, `StandardHours` (all values were constant).
+- Converted categorical values (ABC) to numerical format (123).
+- Replaced `EmployeeNumber` with anonymized `ID` for easier counting.
+- Standardized `BusinessTravel` into one word.
+- Renamed departments:
+  - "Research and Development" → `R&D`
+  - "Human Resources" → `HR`
+- Defined four main dashboard sections: `Home`, `People`, `Experience`, and `Attrition Focus`.
 
 ---
 
-## ✅ Recommendations (Next Steps)
+## 🏠 Page 1: Home
 
-1.  **Mandate Training:** Immediately implement a mandatory, standardized training and onboarding program for all new hires to eliminate the 50% training failure rate.
-2.  **Targeted Retention:** Create an immediate promotion/recognition path for the $\mathbf{215}$ employees in the 5+ year Promotion Deadlock group.
-3.  **Address Burnout:** Implement policy changes to address overtime in key departments, as it drives 31% of attrition.
+- **Total Employees**: `1470`
+- **Attrition**: `237` employees left the company
+- **Attrition Rate**: `16.12%`
+- **Active Employees**: `1233`
+- **Overall Satisfaction**: `2.73 / 5`
+
+### Satisfaction Breakdown:
+| Metric                   | Score |
+|--------------------------|-------|
+| Environment Satisfaction | 2.76  |
+| Job Satisfaction         | 2.76  |
+| Relationship Satisfaction| 2.73  |
+| Work-Life Balance        | 2.71  |
+
+> 📌 Interpretation: Slightly above average satisfaction, but improvement is needed across all dimensions.
+
+---
+
+## 👥 Page 2: People
+
+### Age Group Distribution:
+- Majority are aged **26–35**, indicating a young and potentially long-tenured workforce.
+
+### Department Distribution:
+| Department | % of Workforce |
+|------------|----------------|
+| R&D        | 65%            |
+| Sales      | 30%            |
+| HR         | 4%             |
+
+> 💡 Suggestion: HR should consider hiring more staff to support organizational needs. Sales also deserves a boost—because it's sales!
+
+### Job Roles:
+- Most profiles are **Sales Executives**
+- Over **35%** are split between **Scientists** and **Technicians**
+
+### Gender Distribution:
+- **Men**: ~60%
+- **Women**: ~40%
+
+---
+
+## 🌟 Page 3: Experience
+
+Each department is evaluated across four metrics:
+- Environment Satisfaction  
+- Job Satisfaction  
+- Relationship Satisfaction  
+- Work-Life Balance  
+
+### Average Experience Scores:
+| Department | Score |
+|------------|-------|
+| Sales      | 2.75  |
+| HR         | 2.81  |
+| R&D        | 2.76  |
+
+> 📌 Observation: Sales and R&D are slightly above average. Given they represent the majority of employees, boosting their experience scores is essential.
+
+---
+
+## 🚨 Page 4: Attrition Focus
+
+### Promotion Deadlock Risk
+| Tenure Group | Employees | Insight |
+|--------------|-----------|---------|
+| 0–2 years    | 1097      | Healthy—recently promoted or onboarded |
+| 3–5 years    | 158       | Starting to feel stagnant—promotion needed soon |
+| 5+ years     | 215       | At risk—highly experienced talent feeling stuck |
+
+### Overtime Burnout
+- **31%** of attrition cases involved employees working overtime  
+> ⚠️ Indicates workload management issues
+
+### New Hire Training Failure
+- **50%** of untrained new hires left within a year  
+> 🚫 Costly for recruitment and damaging to reputation
+
+### High-Value Flight Risk
+- **Quartile 1** (most valuable employees): **29%** at risk  
+> 🔥 Losing this group could severely impact performance and innovation
+
+### Low Engagement Crisis
+- Measured by time since last promotion  
+- **Sales** shows the longest average time since promotion  
+> ⚠️ May signal disengagement—needs attention
+
+---
+
+## 🧠 Insights & Next Steps
+
+This dashboard highlights key areas for HR intervention:
+- Improve training for new hires
+- Address promotion stagnation
+- Reduce overtime burnout
+- Boost engagement in Sales and R&D
+
+---
+
+## 🛠 Tools Used
+
+- Python (Pandas, Matplotlib, Seaborn)
+- Power BI / Tableau (for dashboard visualization)
+- Excel (data cleaning and transformation)
+
+---
+
+## 📌 Author
+
+**Abouda**  
+Location: Sfax, Tunisia  
+Project Date: November 2025
+
+---
+
